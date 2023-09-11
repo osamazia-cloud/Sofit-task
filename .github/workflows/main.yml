@@ -34,8 +34,12 @@ jobs:
     - name: Upload zip to S3
       uses: shallwefootball/s3-upload-action@master
       with:
-        region: us-east-1
-        script: "aws s3 cp application.zip s3://sofit-task-bucket/${{ github.sha }}/application.zip"
+        aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+        aws_bucket: sofit-task-bucket
+        source_dir: application.zip
+        # region: us-east-1
+        # script: "aws s3 cp application.zip s3://sofit-task-bucket/${{ github.sha }}/application.zip"
 
     # - name: Deploy to Elastic Beanstalk
     #   env:
