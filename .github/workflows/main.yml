@@ -49,5 +49,5 @@ jobs:
       env:
         SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
       run: |
-        aws elasticbeanstalk create-application-version --application-name hello-world-app --version-label ${{ github.sha }} --source-bundle S3Bucket="sofit-task-bucket",S3Key="${{ github.sha }}/application.zip"
+        aws elasticbeanstalk create-application-version --application-name OsamaTesting --version-label ${{ github.sha }} --source-bundle S3Bucket="sofit-task-bucket",S3Key="${{ github.sha }}/application.zip"
         aws elasticbeanstalk update-environment --application-name OsamaTesting --environment-name OsamaTesting-env --version-label ${{ github.sha }}
