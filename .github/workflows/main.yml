@@ -51,4 +51,3 @@ jobs:
       run: |
         aws elasticbeanstalk create-application-version --application-name OsamaTesting --version-label ${{ github.sha }} --source-bundle S3Bucket="sofit-task-bucket",S3Key="${{ github.sha }}/application.zip"
         aws elasticbeanstalk update-environment --application-name OsamaTesting --environment-name OsamaTesting-env --version-label ${{ github.sha }}
-        aws elasticbeanstalk update-environment --environment-name OsamaTesting-env --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=SECRET_VALUE,Value=${{ secrets.AWS_ACCESS_KEY_ID }}
